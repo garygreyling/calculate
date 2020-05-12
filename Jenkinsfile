@@ -52,5 +52,11 @@ pipeline {
                 sh "docker run -d --rm -p 8765:8081 --name calculator garygreyling/calculator"
             }
         }
+        stage("Acceptance test") {
+            steps {
+                sleep 60
+                sh "./acceptance_test.sh"
+            }
+        }
     }
 }
